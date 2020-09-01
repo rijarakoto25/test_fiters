@@ -1,0 +1,35 @@
+doctype html
+head
+  meta(charset='UTF-8')
+  meta(name='viewport' content='width=device-width, initial-scale=1.0')
+  title Liste des todos
+  link(rel="stylesheet" href="/public/style.css")
+
+  header
+   h1 Voici la liste des Todos
+   block section
+    table.table
+        thead
+            tr
+                th numéro de carte
+                th titre de la carte
+                th description de la carte
+                th Suprimer
+              
+        tbody
+            each cartes in data
+                tr
+                    td= cartes.id
+                    td= cartes.title
+                    td= cartes.description
+                    td
+                        a(href="/" + cartes.id) X
+
+h1 Entrer une nouvelle carte de todo
+form(method='post')
+  input(type='number' name='id' placeholder='numéro de la carte')
+  input(type='text' name='title' placeholder='titre')
+  input(type='text' name='description' placeholder='description')
+  input(type='submit' value='Enregistrer')
+
+
